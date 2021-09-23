@@ -3,7 +3,22 @@ document.querySelector("#title").addEventListener("click", function(){alert("I g
 
 
 // Detect Key presses
-document.addEventListener("keydown",  function(event){check(event.key)});
+document.addEventListener("keydown",  function(event){
+    check(event.key);
+    buttonAnimation(event.key);
+});
+
+function buttonAnimation(key){
+    var actibeBtn = document.querySelector("."+ key);
+    document.querySelector("."+key).classList.add("clicked");
+
+    actibeBtn.classList.add("clicked");
+
+    setTimeout(function(){
+        actibeBtn.classList.remove("clicked");
+    }, 100);
+
+};
 
 
 // function to makesound on key or click
@@ -56,6 +71,7 @@ for (i=0; i <= numberOfDrums; i++){
         var ButtonInnerHTML = this.innerHTML;
 
         check(ButtonInnerHTML);
+        buttonAnimation(ButtonInnerHTML);
 
         
         
